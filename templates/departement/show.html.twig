@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>Nom {{departement.nomDept}}</h1>
+    <br>
+    <h1>Responsable{{departement.Responsable}} </h1><br>
+    <br>
+    <h1>{{ departement.nbrSalarie}}</h1>
+
+<h1>---------------------------------</h1>
+<h1>---------------------------------</h1>
+
+ <img src="{{publicPath ~ job.image}}">
+
+<h2> Liste des employes</h2>
+
+
+<ul class="nav nav-pills nav-stacked">
+        {% for employe in listEmployes %}
+            <li>{{ employe.nom }}</li>
+            <li>{{ employe.salaire}}</li>
+            <li>{{ employe.bornAt | date('d-m-Y') }}</li>
+            <li>{{ employe.email}}</li>
+
+            <li>=====================================</li>
+        {% endfor %}
+</ul>
+
+
+    
+{% endblock %}

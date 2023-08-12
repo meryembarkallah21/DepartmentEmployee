@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2>Liste des Departements | <small> <a class="btn btn-primary" href="{{ path('ajout_departement')}}">Ajouter Departement</a>
+ <small> 
+</small>
+{% for msg in app.flashes('notice') %}
+{{ msg }}
+{% endfor %}
+<table class="table table-hover table-striped" border="1">
+<thread>
+<tr>
+<th> # </th>
+<th> Nom Departement </th>
+<th> Responsable </th>
+<th> Nombre salarie </th>
+<th> Image </th>
+
+</tr>
+</thread>
+<tbody>
+{% for departement in lesDepartements %}
+<tr>
+<td> {{departement.id}} </td>
+<td> {{departement.nomDept | upper}} </td>
+<td> {{departement.Responsable}} </td>
+<td> {{departement.nbrSalarie}} </td>
+<td> {{departement.Image}} </td>
+
+</tr>
+{% else %}
+<tr>
+<td colspan="5"> Aucun employé </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
+
+
+

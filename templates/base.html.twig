@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+
+        
+        {% block stylesheets %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+       
+<link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}" />
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{{asset('css/menu.css')}}" />
+
+
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+      <h1 class="text-center"> {% block titre %} PROJECT 8 {% endblock %} </h1>
+
+
+<div class="navbar">
+  <a class="active" href="http://localhost/ProjectDepEmp/public/index.php/"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="http://localhost/ProjectDepEmp/public/index.php/dep"><i class="fa fa-fw fa-university"></i> Departements </a>
+  <a href="http://localhost/ProjectDepEmp/public/index.php/emp"><i class="fa fa-fw fa-user"></i> Employes</a>
+</div>
+
+
+
+        {% block body %}{% endblock %}
+
+
+    </body>
+</html>

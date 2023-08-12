@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2>Liste des Employes | <small> 
+<a class="btn btn-primary" href="{{ path('employe_addM')}}">Ajouter Employe</a> <small> 
+</small>
+{% for msg in app.flashes('notice') %}
+{{ msg }}
+{% endfor %}
+<table class="table table-hover table-striped" border="1">
+<thread>
+<tr>
+<th> # </th>
+<th> Nom </th>
+<th> Salaire </th>
+<th> Born At </th>
+<th> Email </th>
+<th>  </th>
+
+</tr>
+</thread>
+<tbody>
+{% for employe in lesEmployes %}
+<tr>
+<td> {{employe.id}} </td>
+<td> {{employe.nom | upper}} </td>
+<td> {{employe.salaire}} </td>
+<td> {{employe.bornAt | date('d/m/Y')}} </td>
+<td> {{employe.email}} </td>
+
+<td>
+<a class="btn btn-info" href="{{ path('emp_edit', {'id':employe.id }) }}"> Modifier </a>
+<a class="btn btn-danger" href="{{ path('emp_delete', {'id':employe.id }) }}"onclick="return confirm('Are you sure to delete! {{ employe.nom }}')">Supprimer</a></td>
+</tr>
+{% else %}
+<tr>
+<td colspan="5"> Aucun employé </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
+
+
+
+ 

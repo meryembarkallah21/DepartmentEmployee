@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2>Liste des Employes | <small> <a href="{{ path('ajout_departement')}}">Ajouter Departement</a>
+<a href="{{ path('employe_addM')}}">Ajouter Employe</a> <small> 
+</small>
+{% for msg in app.flashes('notice') %}
+{{ msg }}
+{% endfor %}
+
+{% endblock %}
+
+
+
